@@ -18,40 +18,45 @@ def divide(x, y):
     if y != 0:
         return x / y
     else:
-        return "Erro!!"
+        return "Erro: Divisão por zero!"
 
 
-# Criação do menu
-print("Selecione a operação:")
-print("1.Somar")
-print("2.Subtrair")
-print("3.Multiplicar")
-print("4.Dividir")
+def main():
+    while True:
+        print("\n--- Calculadora ---")
+        print("Selecione a operação:")
+        print("1.Somar")
+        print("2.Subtrair")
+        print("3.Multiplicar")
+        print("4.Dividir")
+        print("5.Sair")
+
+        choice = input("Digite sua escolha (1/5): ")
+
+        if choice == '5':
+            print("Obrigado por usar a calculadora!")
+            break
+
+        if choice in ['1', '2', '3', '4']:
+            num1 = float(input("Digite o primeiro número: "))
+            num2 = float(input("Digite o segundo número: "))
+
+            if choice == '1':
+                print(f"{num1} + {num2} = {add(num1, num2)}")
+            elif choice == '2':
+                print(f"{num1} - {num2} = {subtract(num1, num2)}")
+            elif choice == '3':
+                print(f"{num1} * {num2} = {multiply(num1, num2)}")
+            elif choice == '4':
+                print(f"{num1} / {num2} = {divide(num1, num2)}")
+            else:
+                print("Escolha inválida!")
+
+            again = input("Deseja continuar? (s/n): ")
+            if again.lower() != 's':
+                print("FIM")
+                break
 
 
-# Permite usuário escolher
-escolha = input("Digite sua opção: ")
-num1 = float(input("Digite o primeiro número: "))
-num2 = float(input("Digite o segundo número: "))
-
-print("PUC PR - Calculadora ADS - Com menu")
-print(f"Escolha: {escolha}, N1: {num1}, N2: {num2}")
-
-
-# Escolha com operações
-if escolha == '1':
-    print(f"{num1} + {num2} = {add(num1, num2)}")
-elif escolha == '2':
-    print(f"{num1} - {num2} = {subtract(num1, num2)}")
-elif escolha == '3':
-    print(f"{num1} * {num2} = {multiply(num1, num2)}")
-elif escolha == '4':
-    print(f"{num1} / {num2} = {divide(num1, num2)}")
-else:
-    print("Erro!")
-
-# Mantem calculadora ativa - LOOP
-while True:
-    again = input("Deseja fazer outro calculo?: ")
-    if again.lower() != 's':
-        break
+if __name__ == '__main__':
+    main()
