@@ -45,4 +45,11 @@ elif escolha == '4':
 else:
     print("Erro!")
 
+# Mantem calculadora ativa - LOOP
+while True:
+    again = input("Deseja fazer outro calculo?: ")
+    if again.lower() != 's':
+        break
+
+
 
