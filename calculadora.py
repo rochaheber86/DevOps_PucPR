@@ -16,4 +16,10 @@ def divide(x, y):
     else:
         return "Erro!!"
 
-print("PUC PR - Calculadora ADS")
+#Criação do menu
+print("PUC PR - Calculadora ADS - Com menu")
+print("Selecione a operação:")
+print("1.Somar")
+print("2.Subtrair")
+print("3.Multiplicar")
+print("4.Dividir")
