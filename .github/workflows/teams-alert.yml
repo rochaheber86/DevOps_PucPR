@@ -1,0 +1,19 @@
+name: Alertas no Teams
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notificação no Teams
+        uses: skitionek/notify-microsoft-teams@master
+        if: always()  
+        with:
+          webhook_url: ${{ secrets.TEAMS }}
+          job: ${{ toJson(job) }}
+          steps: ${{ toJson(steps) }}
+          overwrite: '{ "text": "Nova ação no Github! Repo: ${{ github.repository }} | Commit: ${{ github.sha }} | Autor: ${{ github.actor }}" }'
